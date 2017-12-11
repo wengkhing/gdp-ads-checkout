@@ -1,0 +1,10 @@
+@import './style/config';
+@import './style/reset';
+@import './style/shadow';
+
+.card {
+  padding: 24px;
+  background-color: #fff;
+  display: inline-block;
+  @include shadow(1)
+}
