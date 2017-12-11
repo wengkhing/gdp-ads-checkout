@@ -1,6 +1,12 @@
 @import './style/config';
 @import './style/shadow';
 
+.main-container {
+  width: 1200px;
+  padding: 6px 20px;
+  margin: 0 auto;
+}
+
 .card {
   display: flex;
   padding: 24px;
