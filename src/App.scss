@@ -1,10 +1,11 @@
 @import './style/config';
-@import './style/reset';
 @import './style/shadow';
 
 .card {
+  display: flex;
   padding: 24px;
   background-color: #fff;
   display: inline-block;
-  @include shadow(1)
+  transition: all 100ms linear;
+  @include shadow(1);
 }
