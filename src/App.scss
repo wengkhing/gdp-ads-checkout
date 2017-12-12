@@ -1,17 +1,14 @@
 @import './style/config';
 @import './style/shadow';
+@import './style/card';
 
 .main-container {
-  width: 1200px;
+  max-width: 1200px;
   padding: 6px 20px;
   margin: 0 auto;
 }
 
 .card {
-  display: flex;
-  padding: 24px;
-  background-color: #fff;
+  @extend .card;
   display: inline-block;
-  transition: all 100ms linear;
-  @include shadow(1);
 }

@@ -1,7 +1,9 @@
 // APP
 export const CHANGE_PAGE = 'CHANGE_PAGE'
 
-// Orders
-export const CLEAR_ORDER = 'CLEAR_ORDER'
-export const APPEND_GOOD_ORDER = 'APPEND_GOOD_ORDER'
-export const APPEND_BAD_ORDER = 'APPEND_BAD_ORDER'
+// Cart
+export const CART_ADD_ITEM = 'CART_ADD_ITEM'
+export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM'
+export const CART_CHANGE_ITEM_AMOUNT = 'CART_CHANGE_ITEM_AMOUNT'
+export const CART_CALCULATE = 'CART_CALCULATE'
+export const CART_CHECKOUT = 'CART_CHECKOUT'
