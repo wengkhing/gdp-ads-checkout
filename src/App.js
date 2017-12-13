@@ -10,6 +10,8 @@ class App extends Component {
       <div className="App">
         <Flex className="main-container">
           <ProductCard />
+          <ProductCard />
+          <ProductCard />
           <Flex className="card">
             <h1>Title <small>subtitle</small></h1>
             <h2>Title <small>subtitle</small></h2>

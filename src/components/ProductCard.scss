@@ -5,6 +5,20 @@
 .product-card {
   @extend .card;
   width: 100%;
+  margin-bottom: 8px;
+
+  .__deal {
+    margin-bottom: 12px;
+
+    span {
+      font-size: 0.75em;
+      padding: 8px;
+      border-radius: 4px;
+      color: $success-color;
+      border: 1px solid $success-color;
+      background-color: lighten($success-color, 50%);
+    }
+  }
 
   .__title {
     color: $primary-color;
@@ -35,9 +49,17 @@
   }
 
   .input-amount {
-    width: 40px;
+    width: 60px;
+    font-size: 14px;
     text-align: center;
     border: 0;
     line-height: 30px;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+
+  }
+
+  .input-amount:focus {
+    border-bottom: 1px solid $primary-color;
   }
 }
