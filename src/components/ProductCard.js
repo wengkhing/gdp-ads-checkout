@@ -5,21 +5,21 @@ import './ProductCard.scss'
 
 const ProductCard = () => {
   return (
-    <Flex gap="20" row className='product-card'>
-      <Flex className="product-image" mSize="100px">
+    <Flex wrap gap="20" row className='product-card' mAlign="end">
+      <Flex mSize="100px">
         <img src="http://via.placeholder.com/100x100" />
       </Flex>
       <Flex column grow>
         <h1 className="__title">Classic Ad</h1>
         <p className="__description">Offer the most basic level of advertisement</p>
         <Flex gap="6" row>
-          <Flex><button>-</button></Flex>
-          <Flex><input type="text" value="1"/></Flex>
-          <Flex><button>+</button></Flex>
+          <Flex><button className="button rounded">-</button></Flex>
+          <Flex><input className="input-amount" type="text" value="1"/></Flex>
+          <Flex><button className="button rounded">+</button></Flex>
         </Flex>
       </Flex>
       <Flex>
-        $299.90
+        <span className="__price">$299.90</span>
       </Flex>
     </Flex>
   )

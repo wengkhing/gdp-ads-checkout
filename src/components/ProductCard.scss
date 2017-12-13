@@ -18,4 +18,26 @@
     font-size: 0.81em;
     margin: 0 0 8px 0;
   }
+
+  .__price {
+    align-self: flex-end;
+    vertical-align: bottom;
+  }
+
+  .button.rounded {
+    border: 0px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .input-amount {
+    width: 40px;
+    text-align: center;
+    border: 0;
+    line-height: 30px;
+  }
 }
