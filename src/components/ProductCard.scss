@@ -1,0 +1,21 @@
+@import '../style/shadow';
+@import '../style/card';
+@import '../style/config';
+
+.product-card {
+  @extend .card;
+  width: 100%;
+
+  .__title {
+    color: $primary-color;
+    font-size: 0.87em;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+
+  .__description {
+    color: #7A7A7A;
+    font-size: 0.81em;
+    margin: 0 0 8px 0;
+  }
+}

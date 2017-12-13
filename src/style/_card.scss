@@ -2,6 +2,7 @@
   background-color: #fff;
   padding: 24px;
   transition: all 0.15s linear;
+  box-sizing: border-box;
   @include shadow(2);
 }
 
