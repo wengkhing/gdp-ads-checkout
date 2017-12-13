@@ -1,5 +1,6 @@
 // APP
-export const CHANGE_PAGE = 'CHANGE_PAGE'
+export const APP_LOGIN = 'APP_LOGIN'
+export const PRODUCT_LIST = 'PRODUCT_LIST'
 
 // Cart
 export const CART_ADD_ITEM = 'CART_ADD_ITEM'

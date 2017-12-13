@@ -1,7 +1,7 @@
 // Actions
 import {
-  CHANGE_PAGE,
-  CLEAR_ORDER
+  APP_LOGIN,
+  PRODUCT_LIST
 } from './actionTypes'
 
 export function changePage (page) {

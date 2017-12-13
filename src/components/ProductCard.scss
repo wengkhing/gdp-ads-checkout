@@ -6,6 +6,20 @@
   @extend .card;
   width: 100%;
   margin-bottom: 8px;
+  position: relative;
+
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 16px;
+    cursor: pointer;
+    opacity: 0.4;
+  }
+
+  .close:hover {
+    opacity: 1;
+  }
 
   .__deal {
     margin-bottom: 12px;

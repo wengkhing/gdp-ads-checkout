@@ -18,7 +18,8 @@ const Flex = (props) => {
     mSize,
     xSize,
     mAlign,
-    xAlign
+    xAlign,
+    selfAlign,
   } = props
 
   let childrenWithProps
@@ -39,6 +40,17 @@ const Flex = (props) => {
   } else if (column) {
     mergedStyle['flexDirection'] = 'column'
     mergedStyle['width'] = xSize
+  }
+
+  switch (selfAlign) {
+    case 'start':
+      mergedStyle['alignSelf'] = 'flex-start'
+      break;
+    case 'end':
+      mergedStyle['alignSelf'] = 'flex-end'
+      break
+    default:
+      mergedStyle['alignSelf'] = selfAlign
   }
 
   switch (mAlign) {
