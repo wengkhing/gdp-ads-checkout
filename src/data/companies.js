@@ -1,5 +1,9 @@
 export default [
 {
+  id: 'default',
+  name: 'Default',
+  deals: []
+}, {
   id: 'unilever',
   name: 'Unilever',
   deals: [

@@ -45,11 +45,12 @@
     color: #7A7A7A;
     font-size: 0.81em;
     margin: 0 0 8px 0;
+    max-width: 450px;
   }
 
   .__price {
-    align-self: flex-end;
     vertical-align: bottom;
+    text-align: right;
   }
 
   .button.rounded {

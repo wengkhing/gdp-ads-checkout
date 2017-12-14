@@ -6,14 +6,15 @@ import {
   CART_REMOVE_ITEM,
   CART_CHANGE_ITEM_AMOUNT,
   CART_CALCULATE,
-  CART_CHECKOUT
+  CART_CHECKOUT,
+  CART_CLEAR
 } from '../actions/actionTypes'
 
 const initialState = {
   basket: [],
-  subtotal: null,
+  subtotal: 0,
   deductions: {},
-  grandtotal: null
+  grandtotal: 0
 }
 
 export default function (state = initialState, action) {
@@ -31,7 +32,9 @@ export default function (state = initialState, action) {
       return { ...state,
         basket: _.map(state.basket, item => item.id === action.payload.item_id
           ? { ...item, amount: item.amount + action.payload.amount }
-          : item) }
+          : item
+        )
+      }
     case CART_CALCULATE:
       return { ...state,
         subtotal: action.payload.subtotal,
@@ -40,6 +43,8 @@ export default function (state = initialState, action) {
       }
     case CART_CHECKOUT:
       return { ...state, basket: action.payload.item }
+    case CART_CLEAR:
+      return { ...initialState }
     default:
       return state
   }

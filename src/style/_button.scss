@@ -1,0 +1,30 @@
+@import './config';
+@import './shadow';
+
+.success-text {
+  color: $success-color;
+}
+
+.app-button {
+  padding: 8px 24px;
+  border: none;
+  font-size: 0.74em;
+  transition: all 0.15s linear;
+  @include shadow(1)
+}
+
+.app-button:hover {
+  @include shadow(2)
+}
+
+.success-button {
+  background-color: $success-color;
+  color: #fff;
+  @extend .app-button;
+}
+
+.danger-button {
+  background-color: $danger-color;
+  color: #fff;
+  @extend .app-button;
+}

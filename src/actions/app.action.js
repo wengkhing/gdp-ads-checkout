@@ -2,7 +2,8 @@
 import {
   APP_LOGIN,
   APP_LOGOUT,
-  PRODUCT_LIST
+  PRODUCT_LIST,
+  CART_CLEAR
 } from './actionTypes'
 
 export function login (user_id) {
@@ -18,6 +19,9 @@ export function logout () {
   return dispatch => {
     dispatch({
       type: APP_LOGOUT
+    })
+    dispatch({
+      type: CART_CLEAR
     })
   }
 }

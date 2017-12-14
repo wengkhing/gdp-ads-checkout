@@ -1,20 +1,36 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
+import { Redirect } from 'react-router'
 import { Link } from 'react-router-dom'
 import Flex from './Flex'
 
-import { listProduct } from '../actions'
+import { logout } from '../actions'
 
 class Navbar extends Component {
+
+  state = {
+    redirect: false
+  }
+
+  logout() {
+    this.props.logout()
+    this.setState({
+      redirect: true
+    })
+  }
+
+  renderRedirect() {
+    if (this.state.redirect)
+      return <Redirect to="/" />
+  }
 
   render() {
     return (
       <Flex row gap={20}>
-        <Flex><Link to='/'>Home</Link></Flex>
-        <Flex><Link to='/shopping'>Get Ads</Link></Flex>
-        <Flex><Link to='/inventory'>Inventory</Link></Flex>
-        <Flex>{ this.props.app.user && <Link to='/'>Logout</Link> }</Flex>
+        <Flex>{ this.props.app.user && <Link to='/shopping'>Get Ads</Link> }</Flex>
+        <Flex>{ this.props.app.user && <a onClick={() => this.logout()}>Logout</a> }</Flex>
+        <Flex>{ this.renderRedirect() }</Flex>
       </Flex>
     );
   }
@@ -27,7 +43,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ listProduct }, dispatch)
+  return bindActionCreators({ logout }, dispatch)
 }
 
-export default connect(mapStateToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

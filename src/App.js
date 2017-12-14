@@ -7,7 +7,6 @@ import Inventory from './containers/Inventory'
 import Shopping from './containers/Shopping'
 
 import Navbar from './components/Navbar'
-import CheckoutForm from './components/CheckoutForm'
 import './App.scss'
 
 class App extends Component {
@@ -21,7 +20,6 @@ class App extends Component {
           <Route path='/inventory' component={Inventory}/>
         </Switch>
 
-        <CheckoutForm />
       </div>
     );
   }

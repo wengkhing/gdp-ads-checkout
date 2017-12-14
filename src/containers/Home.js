@@ -28,7 +28,7 @@ class Home extends Component {
     return (
       <Flex className='main-container' column>
         <Flex><h1>Login as</h1></Flex>
-        <Flex><a onClick={() => this.loginAs('normal')}>Normal User</a></Flex>
+        <Flex><a onClick={() => this.loginAs('default')}>Default User</a></Flex>
         <Flex><a onClick={() => this.loginAs('unilever')}>Unilever</a></Flex>
         <Flex><a onClick={() => this.loginAs('apple')}>Apple</a></Flex>
         <Flex><a onClick={() => this.loginAs('nike')}>Nike</a></Flex>

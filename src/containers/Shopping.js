@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import _ from 'lodash'
@@ -7,8 +8,20 @@ import { listProduct } from '../actions'
 
 import Flex from '../components/Flex'
 import ProductCard from '../components/ProductCard'
+import CheckoutForm from '../components/CheckoutForm'
+
+import './Shopping.scss'
 
 class Shopping extends Component {
+
+  state = {
+    redirect: false
+  }
+
+  renderRedirect() {
+    if (!this.props.app.user)
+      return <Redirect to="/" />
+  }
 
   componentDidMount() {
     this.props.listProduct()
@@ -23,8 +36,10 @@ class Shopping extends Component {
 
   render () {
     return (
-      <Flex className="main-container">
+      <Flex className="main-container bottom-padded">
         { this.renderProducts() }
+        { this.renderRedirect() }
+        <CheckoutForm />
       </Flex>
     );
   }

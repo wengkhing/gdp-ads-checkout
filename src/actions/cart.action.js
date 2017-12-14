@@ -5,7 +5,8 @@ import {
   CART_REMOVE_ITEM,
   CART_CHANGE_ITEM_AMOUNT,
   CART_CALCULATE,
-  CART_CHECKOUT
+  CART_CHECKOUT,
+  CART_CLEAR
 } from './actionTypes'
 
 export function addItem (item) {
@@ -30,7 +31,10 @@ export function removeItem (item_id) {
 
 export function changeItemAmount (item_id, amount) {
   return (dispatch, getState) => {
-    if (_.find(getState().cart.basket, {id: item_id}).amount === 1 && amount === -1) {
+    const { basket } = getState().cart
+    const item = _.find(basket, {id: item_id})
+
+    if (item && item.amount <= 1 && amount === -1) {
       dispatch({
         type: CART_REMOVE_ITEM,
         payload: item_id
@@ -54,8 +58,21 @@ export function calculate () {
     const deductions = {};
     const grandtotal = _.reduce(cart.basket,
       (sum, item) => {
-
-        sum + (item.price * item.amount)
+        if (app.user) {
+          const deal = _.find(app.user.deals, { product_id: item.id })
+          if (deal) {
+            switch (deal.type) {
+              case 'x for y':
+                return sum
+                  + (Math.floor(item.amount / deal.x) * deal.y * item.price)
+                  + (item.amount % deal.x * item.price)
+              case 'price drop where x or more':
+                if (item.amount >= deal.x)
+                  return sum + (deal.new_price * item.amount)
+            }
+          }
+        }
+        return sum + (item.price * item.amount)
       }, 0)
     dispatch ({
       type: CART_CALCULATE,
@@ -68,6 +85,14 @@ export function checkout () {
   return dispatch => {
     dispatch ({
       type: CART_CHECKOUT
+    })
+  }
+}
+
+export function clear() {
+  return dispatch => {
+    dispatch ({
+      type: CART_CLEAR
     })
   }
 }
