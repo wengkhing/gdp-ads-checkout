@@ -1,5 +1,4 @@
 import _ from 'lodash'
-
 // Actions
 import {
   CART_ADD_ITEM,
@@ -15,6 +14,7 @@ export function addItem (item) {
       type: CART_ADD_ITEM,
       payload: item
     })
+    dispatch(calculate())
   }
 }
 
@@ -24,6 +24,7 @@ export function removeItem (item_id) {
       type: CART_REMOVE_ITEM,
       payload: item_id
     })
+    dispatch(calculate())
   }
 }
 
@@ -40,13 +41,19 @@ export function changeItemAmount (item_id, amount) {
         payload: { item_id, amount }
       })
     }
+    dispatch(calculate())
   }
 }
 
 export function calculate () {
-  return dispatch => {
+  return (dispatch, getState) => {
+    const subtotal = _.reduce(getState().cart.basket,
+      (sum, item) => sum + (item.price * item.amount), 0)
+    const deductions = {};
+    const grandtotal = subtotal;
     dispatch ({
-      type: CART_CALCULATE
+      type: CART_CALCULATE,
+      payload: { subtotal, deductions, grandtotal }
     })
   }
 }

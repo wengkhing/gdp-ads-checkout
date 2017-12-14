@@ -21,7 +21,7 @@ export default function (state = initialState, action) {
     case APP_LOGIN:
       return { ...state, user: _.find(users, { id: action.payload.user_id }) }
     case APP_LOGOUT:
-      return { ...state, }
+      return { ...state, user: null }
     case PRODUCT_LIST:
       return { ...state, ...{ products }}
     default:

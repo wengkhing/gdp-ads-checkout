@@ -11,11 +11,9 @@ import {
 
 const initialState = {
   basket: [],
-  summary: {
-    subtotal: null,
-    deductions: {},
-    grandtotal: null
-  }
+  subtotal: null,
+  deductions: {},
+  grandtotal: null
 }
 
 export default function (state = initialState, action) {
@@ -24,7 +22,7 @@ export default function (state = initialState, action) {
       return { ...state,
         basket: _.includes(_.map(state.basket, item => item.id), action.payload.id)
           ? [ ...state.basket ]
-          : [ ...state.basket, { id: action.payload.id, amount: 1 } ]
+          : [ ...state.basket, { ...action.payload, amount: 1 } ]
       }
     case CART_REMOVE_ITEM:
       return { ...state,
@@ -32,10 +30,14 @@ export default function (state = initialState, action) {
     case CART_CHANGE_ITEM_AMOUNT:
       return { ...state,
         basket: _.map(state.basket, item => item.id === action.payload.item_id
-          ? {id: item.id, amount: item.amount + action.payload.amount}
+          ? { ...item, amount: item.amount + action.payload.amount }
           : item) }
     case CART_CALCULATE:
-      return { ...state, basket: action.payload.item }
+      return { ...state,
+        subtotal: action.payload.subtotal,
+        deductions: action.payload.deductions,
+        grandtotal: action.payload.grandtotal
+      }
     case CART_CHECKOUT:
       return { ...state, basket: action.payload.item }
     default:
