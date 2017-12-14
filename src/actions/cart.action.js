@@ -7,7 +7,7 @@ import {
   CART_CHECKOUT
 } from './actionTypes'
 
-export function addItem () {
+export function addItem (item) {
   return dispatch => {
     dispatch ({
       type: CART_ADD_ITEM,
@@ -16,7 +16,7 @@ export function addItem () {
   }
 }
 
-export function removeItem() {
+export function removeItem (item_id) {
   return dispatch => {
     dispatch ({
       type: CART_REMOVE_ITEM,
@@ -25,7 +25,7 @@ export function removeItem() {
   }
 }
 
-export function changeItemAmount() {
+export function changeItemAmount(item_id, amount) {
   return dispatch => {
     dispatch ({
       type: CART_CHANGE_ITEM_AMOUNT,

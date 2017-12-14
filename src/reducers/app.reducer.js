@@ -9,7 +9,7 @@ import products from '../data/products'
 const initialState = {
   page: '',
   products: [],
-  companies: []
+  user: null
 }
 
 export default function (state = initialState, action) {

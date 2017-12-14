@@ -18,17 +18,17 @@ class CheckoutForm extends Component {
           <Flex column className='section-items'>
             <Flex row className='item'>
               <Flex grow className='item__name'>Classic Ad</Flex>
-              <Flex mSize='70px' className='item__unit'>1 unit(s)</Flex>
+              <Flex mSize='70px' className='item__unit'>x1</Flex>
               <Flex mSize='90px' className='item__price'>$299.90</Flex>
             </Flex>
             <Flex row className='item'>
               <Flex grow className='item__name'>Standout Ad</Flex>
-              <Flex mSize='70px' className='item__unit'>2 unit(s)</Flex>
+              <Flex mSize='70px' className='item__unit'>x2</Flex>
               <Flex mSize='90px' className='item__price'>$579.90</Flex>
             </Flex>
             <Flex row className='item'>
               <Flex grow className='item__name'>Premium Ad</Flex>
-              <Flex mSize='70px' className='item__unit'>3 unit(s)</Flex>
+              <Flex mSize='70px' className='item__unit'>x3</Flex>
               <Flex mSize='90px' className='item__price'>$1219.90</Flex>
             </Flex>
           </Flex>

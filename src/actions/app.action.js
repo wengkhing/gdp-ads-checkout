@@ -4,14 +4,10 @@ import {
   PRODUCT_LIST
 } from './actionTypes'
 
-export function changePage (page) {
+export function listProduct () {
   return dispatch => {
     dispatch({
-      type: CHANGE_PAGE,
-      payload: { page }
-    })
-    dispatch({
-      type: CLEAR_ORDER
+      type: PRODUCT_LIST
     })
   }
 }
