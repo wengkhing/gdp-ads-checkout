@@ -21,6 +21,7 @@ class CheckoutForm extends Component {
   }
 
   render() {
+    const { subtotal, grandtotal } = this.props.cart
     return (
       <Flex column className='checkout-card'>
 
@@ -37,11 +38,15 @@ class CheckoutForm extends Component {
           <Flex column className='section-total'>
             <Flex row className='subtotal'>
               <Flex grow className='subtotal__label'>Subtotal</Flex>
-              <Flex mSize='110px' className='subtotal__value'>${this.props.cart.subtotal / 100}</Flex>
+              <Flex mSize='110px' className='subtotal__value'>${subtotal / 100}</Flex>
+            </Flex>
+            <Flex row className='deductions'>
+              <Flex grow className='deductions__label'>Deductions</Flex>
+              <Flex mSize='110px' className='deductions__value'>-${(subtotal - grandtotal) / 100}</Flex>
             </Flex>
             <Flex row className='total'>
               <Flex grow className='total__label'>Grand Total</Flex>
-              <Flex mSize='110px' className='total__value'>${this.props.cart.grandtotal / 100}</Flex>
+              <Flex mSize='110px' className='total__value'>${grandtotal / 100}</Flex>
             </Flex>
           </Flex>
         </div>

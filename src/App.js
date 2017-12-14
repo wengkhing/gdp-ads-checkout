@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 // import Flex from './components/Flex'
 
@@ -13,11 +14,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        { this.props.app.user && <Navbar /> }
         <Switch>
-          <Route exact path='/' component={Home}/>
           <Route path='/shopping' component={Shopping}/>
-          <Route path='/inventory' component={Inventory}/>
+          <Route exact path='/' component={Home}/>
         </Switch>
 
       </div>
@@ -25,4 +25,8 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateToProps({ app }) {
+  return { app };
+}
+
+export default connect(mapStateToProps)(App);

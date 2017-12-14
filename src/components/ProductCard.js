@@ -38,7 +38,7 @@ class ProductCard extends Component {
         case 'x for y':
           return (
             <Flex className="__deal">
-              <span>ACTIVE DEAL: {deal.x} for {deal.y} deals</span>
+              <span>ACTIVE DEAL: Get a {deal.x} for {deal.y} deal</span>
             </Flex>
           )
         case 'price drop where x or more':

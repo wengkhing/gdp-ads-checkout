@@ -1,0 +1,40 @@
+@import '../style/shadow';
+@import '../style/card';
+@import '../style/config';
+
+.background {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://source.unsplash.com/3BK_DyRVf90/1440x900');
+  background-size: cover;
+  background-position: center top;
+  min-height: 100vh;
+  min-width: 100vw;
+  padding: 0px 8px;
+  box-sizing: border-box;
+}
+
+.login-card {
+  @extend.card;
+  min-width: 300px;
+  max-width: 400px;
+
+  .logo-container {
+    padding: 4px 90px;
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .__title {
+    color: $primary-color;
+    margin-top: 16px;
+    font-size: 1em;
+  }
+
+  select {
+    border: 1px solid  #aaa;
+    padding: 4px 24px;
+    background-color: #fff;
+    -moz-appearance: none;
+  }
+}

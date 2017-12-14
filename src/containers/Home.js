@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import { login } from '../actions'
 
 import Flex from '../components/Flex'
+import './Home.scss'
 
 class Home extends Component {
 
@@ -12,10 +13,16 @@ class Home extends Component {
     redirect: false
   }
 
-  loginAs(name) {
-    this.props.login(name)
+  constructor(props) {
+    super(props)
+    this.handleUserChange = this.handleUserChange.bind(this)
+  }
+
+  handleUserChange(ev) {
+    console.log(ev.target.value);
+    this.props.login(ev.target.value)
     this.setState({
-      redirect: true
+      redirect: true,
     })
   }
 
@@ -26,14 +33,22 @@ class Home extends Component {
 
   render() {
     return (
-      <Flex className='main-container' column>
-        <Flex><h1>Login as</h1></Flex>
-        <Flex><a onClick={() => this.loginAs('default')}>Default User</a></Flex>
-        <Flex><a onClick={() => this.loginAs('unilever')}>Unilever</a></Flex>
-        <Flex><a onClick={() => this.loginAs('apple')}>Apple</a></Flex>
-        <Flex><a onClick={() => this.loginAs('nike')}>Nike</a></Flex>
-        <Flex><a onClick={() => this.loginAs('ford')}>Ford</a></Flex>
+      <Flex row className='background' mAlign='center' xAlign='center'>
         { this.renderRedirect() }
+        <Flex column className="login-card">
+          <Flex className='logo-container'>
+            <img src="http://www.newscorpaustralia.com/sites/default/files/styles/news_610_wide/public/Seek%20logo.jpg?itok=tCMUevSd" alt="seek-logo"/>
+          </Flex>
+          <Flex><h1 className='__title'>Login as</h1></Flex>
+          <select defaultValue='none' onChange={this.handleUserChange}>
+            <option  disabled value='none'>- Select a user -</option>
+            <option value='default'>Default User</option>
+            <option value='unilever'>Unilever</option>
+            <option value='apple'>Apple</option>
+            <option value='nike'>Nike</option>
+            <option value='ford'>Ford</option>
+          </select>
+        </Flex>
       </Flex>
     );
   }
