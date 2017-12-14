@@ -5,7 +5,7 @@ import Flex from '../components/Flex'
 class Home extends Component {
   render() {
     return (
-      <Flex column>
+      <Flex className='main-container' column>
         <Flex><h1>Login as</h1></Flex>
         <Flex><Link to='/inventory'>Normal User</Link></Flex>
         <Flex><Link to='/inventory'>Unilever</Link></Flex>

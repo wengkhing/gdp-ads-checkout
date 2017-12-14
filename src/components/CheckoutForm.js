@@ -1,9 +1,26 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 import Flex from './Flex'
+import products from '../data/products'
 import './CheckoutForm.scss'
 
 class CheckoutForm extends Component {
+
+
+  renderItem() {
+    return _.map(this.props.cart.basket, item => {
+      const product = _.find(products, { id: item.id })
+      return (
+        <Flex key={item.id} row className='item'>
+          <Flex grow className='item__name'>{product.name}</Flex>
+          <Flex mSize='70px' className='item__unit'>x{item.amount}</Flex>
+          <Flex mSize='90px' className='item__price'>{product.price}</Flex>
+        </Flex>
+      )
+    })
+  }
+
   render() {
     return (
       <Flex column className='checkout-card'>
@@ -16,21 +33,7 @@ class CheckoutForm extends Component {
 
         <div className='card-content'>
           <Flex column className='section-items'>
-            <Flex row className='item'>
-              <Flex grow className='item__name'>Classic Ad</Flex>
-              <Flex mSize='70px' className='item__unit'>x1</Flex>
-              <Flex mSize='90px' className='item__price'>$299.90</Flex>
-            </Flex>
-            <Flex row className='item'>
-              <Flex grow className='item__name'>Standout Ad</Flex>
-              <Flex mSize='70px' className='item__unit'>x2</Flex>
-              <Flex mSize='90px' className='item__price'>$579.90</Flex>
-            </Flex>
-            <Flex row className='item'>
-              <Flex grow className='item__name'>Premium Ad</Flex>
-              <Flex mSize='70px' className='item__unit'>x3</Flex>
-              <Flex mSize='90px' className='item__price'>$1219.90</Flex>
-            </Flex>
+            { this.renderItem() }
           </Flex>
           <Flex column className='section-total'>
             <Flex row className='subtotal'>
@@ -53,10 +56,8 @@ class CheckoutForm extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    state
-  };
+function mapStateToProps({ cart }) {
+  return { cart };
 }
 
 export default connect(mapStateToProps)(CheckoutForm);

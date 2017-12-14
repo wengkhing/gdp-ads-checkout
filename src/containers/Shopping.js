@@ -17,9 +17,7 @@ class Shopping extends Component {
   renderProducts () {
     return _.map(this.props.app.products, product => (
       <ProductCard key={product.id}
-        name={product.name}
-        description={product.description}
-        price={product.price} />
+        product={product} />
     ))
   }
 
@@ -32,10 +30,8 @@ class Shopping extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    app: state.app
-  };
+function mapStateToProps({ app }) {
+  return { app };
 }
 
 function mapDispatchToProps (dispatch) {
