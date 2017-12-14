@@ -18,7 +18,7 @@ export default [
       product_id: 'standout',
       type: 'price drop where x or more',
       x: 1,
-      new_price: 299.99
+      new_price: 29999
     }
   ]
 }, {
@@ -29,7 +29,7 @@ export default [
       product_id: 'premium',
       type: 'price drop where x or more',
       x: 4,
-      new_price: 379.99
+      new_price: 37999
     }
   ]
 }, {
@@ -45,12 +45,12 @@ export default [
       product_id: 'standout',
       type: 'price drop where x or more',
       x: 1,
-      new_price: 309.99
+      new_price: 30999
     }, {
       product_id: 'premium',
       type: 'price drop where x or more',
       x: 3,
-      new_price: 389.99
+      new_price: 38999
     }
   ]
 }

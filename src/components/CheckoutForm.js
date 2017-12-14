@@ -14,7 +14,7 @@ class CheckoutForm extends Component {
         <Flex key={item.id} row className='item'>
           <Flex grow className='item__name'>{item.name}</Flex>
           <Flex mSize='70px' className='item__unit'>x{item.amount}</Flex>
-          <Flex mSize='90px' className='item__price'>${item.price}</Flex>
+          <Flex mSize='90px' className='item__price'>${item.price / 100}</Flex>
         </Flex>
       )
     })
@@ -37,11 +37,11 @@ class CheckoutForm extends Component {
           <Flex column className='section-total'>
             <Flex row className='subtotal'>
               <Flex grow className='subtotal__label'>Subtotal</Flex>
-              <Flex mSize='110px' className='subtotal__value'>${this.props.cart.subtotal}</Flex>
+              <Flex mSize='110px' className='subtotal__value'>${this.props.cart.subtotal / 100}</Flex>
             </Flex>
             <Flex row className='total'>
               <Flex grow className='total__label'>Grand Total</Flex>
-              <Flex mSize='110px' className='total__value'>${this.props.cart.grandtotal}</Flex>
+              <Flex mSize='110px' className='total__value'>${this.props.cart.grandtotal / 100}</Flex>
             </Flex>
           </Flex>
         </div>

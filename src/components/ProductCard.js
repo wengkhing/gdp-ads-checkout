@@ -53,7 +53,7 @@ class ProductCard extends Component {
 
             </Flex>
             <Flex selfAlign="end">
-              <span className="__price">${ product.price }</span>
+              <span className="__price">${ product.price / 100 }</span>
             </Flex>
           </Flex>
         </Flex>

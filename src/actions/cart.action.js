@@ -47,10 +47,16 @@ export function changeItemAmount (item_id, amount) {
 
 export function calculate () {
   return (dispatch, getState) => {
-    const subtotal = _.reduce(getState().cart.basket,
+    const { cart, app } = getState()
+
+    const subtotal = _.reduce(cart.basket,
       (sum, item) => sum + (item.price * item.amount), 0)
     const deductions = {};
-    const grandtotal = subtotal;
+    const grandtotal = _.reduce(cart.basket,
+      (sum, item) => {
+
+        sum + (item.price * item.amount)
+      }, 0)
     dispatch ({
       type: CART_CALCULATE,
       payload: { subtotal, deductions, grandtotal }
