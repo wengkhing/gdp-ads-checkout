@@ -1,0 +1,29 @@
+@import '../style/config';
+@import '../style/shadow';
+
+.navbar {
+  padding: 4px 16px;
+  background-color: $primary-color;
+  vertical-align: top;
+  @include shadow(1);
+}
+
+.navbar-header {
+  font-size: 0.8em;
+  display: inline-block;
+  letter-spacing: 1px;
+  padding: 8px 16px;
+  color: #fff;
+  margin: 0px;
+}
+
+.navbar-button {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  padding: 8px 16px;
+}

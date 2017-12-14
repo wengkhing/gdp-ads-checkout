@@ -13,11 +13,6 @@ class Home extends Component {
     redirect: false
   }
 
-  constructor(props) {
-    super(props)
-    this.handleUserChange = this.handleUserChange.bind(this)
-  }
-
   handleUserChange(ev) {
     console.log(ev.target.value);
     this.props.login(ev.target.value)
@@ -40,7 +35,7 @@ class Home extends Component {
             <img src="http://www.newscorpaustralia.com/sites/default/files/styles/news_610_wide/public/Seek%20logo.jpg?itok=tCMUevSd" alt="seek-logo"/>
           </Flex>
           <Flex><h1 className='__title'>Login as</h1></Flex>
-          <select defaultValue='none' onChange={this.handleUserChange}>
+          <select defaultValue='none' onChange={(ev) => this.handleUserChange(ev)}>
             <option  disabled value='none'>- Select a user -</option>
             <option value='default'>Default User</option>
             <option value='unilever'>Unilever</option>

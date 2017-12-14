@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import Flex from './Flex'
 
 import { logout } from '../actions'
+import './Navbar.scss'
 
 class Navbar extends Component {
 
@@ -27,18 +28,21 @@ class Navbar extends Component {
 
   render() {
     return (
-      <Flex row gap={20}>
-        <Flex><Link to='/shopping'>Get Ads</Link></Flex>
-        <Flex><a onClick={() => this.logout()}>Logout</a></Flex>
-        <Flex>{ this.renderRedirect() }</Flex>
-      </Flex>
+      <div className='navbar'>
+        <h1 className="navbar-header">Welcome, {this.props.app.user.name} </h1>
+        <a className='navbar-button' onClick={() => this.logout()}>Logout</a>
+        { this.renderRedirect() }
+      </div>
     );
   }
 }
 
+function mapStateToProps({ app }) {
+  return { app }
+}
 
 function mapDispatchToProps (dispatch) {
   return bindActionCreators({ logout }, dispatch)
 }
 
-export default connect(null, mapDispatchToProps)(Navbar);
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
