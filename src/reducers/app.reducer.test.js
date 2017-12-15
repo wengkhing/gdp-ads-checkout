@@ -1,5 +1,5 @@
-import React from 'react';
-import reducer from './app.reducer';
+import React from 'react'
+import reducer from './app.reducer'
 
 import {
   APP_LOGIN,
@@ -26,6 +26,13 @@ describe('app reducers', () => {
       type: APP_LOGIN,
       payload: { user_id: 'apple'}
     }).user.id).toEqual('apple')
+  })
+
+  it('[APP_LOGIN] should not able to login if user not exist', () => {
+    expect(reducer(initialState, {
+      type: APP_LOGIN,
+      payload: { user_id: 'abc'}
+    }).user).toEqual(null)
   })
 
   it('[APP_LOGOUT] should able to logout', () => {

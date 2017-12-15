@@ -19,7 +19,8 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case APP_LOGIN:
-      return { ...state, user: _.find(users, { id: action.payload.user_id }) }
+      const user = _.find(users, { id: action.payload.user_id });
+      return { ...state, user: user? user : null }
     case APP_LOGOUT:
       return { ...state, user: null }
     case PRODUCT_LIST:

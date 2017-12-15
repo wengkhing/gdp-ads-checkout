@@ -13,7 +13,7 @@ import {
 const initialState = {
   basket: [],
   subtotal: 0,
-  deductions: {},
+  // deductions: {},
   grandtotal: 0
 }
 
@@ -38,7 +38,7 @@ export default function (state = initialState, action) {
     case CART_CALCULATE:
       return { ...state,
         subtotal: action.payload.subtotal,
-        deductions: action.payload.deductions,
+        // deductions: action.payload.deductions,
         grandtotal: action.payload.grandtotal
       }
     case CART_CHECKOUT:
