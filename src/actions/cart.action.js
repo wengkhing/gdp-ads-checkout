@@ -71,7 +71,6 @@ export function calculate () {
                   return sum + (deal.new_price * item.amount)
                 break;
               default:
-                return sum + (item.price * item.amount)
             }
           }
         }
