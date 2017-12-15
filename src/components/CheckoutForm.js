@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 import Flex from './Flex'
-import products from '../data/products'
 import './CheckoutForm.scss'
 
 class CheckoutForm extends Component {

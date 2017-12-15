@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Redirect } from 'react-router'
-import { Link } from 'react-router-dom'
-import Flex from './Flex'
 
 import { logout } from '../actions'
 import './Navbar.scss'

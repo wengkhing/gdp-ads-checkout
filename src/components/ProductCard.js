@@ -37,16 +37,17 @@ class ProductCard extends Component {
       switch (deal.type) {
         case 'x for y':
           return (
-            <Flex className="__deal">
+            <Flex className='__deal'>
               <span>ACTIVE DEAL: Get a {deal.x} for {deal.y} deal</span>
             </Flex>
           )
         case 'price drop where x or more':
           return (
-            <Flex className="__deal">
+            <Flex className='__deal'>
               <span>ACTIVE DEAL: Price drops to ${deal.new_price/100} where {deal.x} or more are purchased</span>
             </Flex>
           )
+        default:
       }
     }
   }
@@ -73,20 +74,20 @@ class ProductCard extends Component {
       return (
         <Flex gap={6} row>
           <Flex>
-            <button className="button rounded"
+            <button className='button rounded'
               onClick={() => this.props.changeItemAmount(product.id, -1)}>
               -
             </button>
           </Flex>
           <Flex>
             <input
-            className="input-amount"
-            type="text"
+            className='input-amount'
+            type='text'
             value={in_cart_item.amount}
             disabled />
           </Flex>
           <Flex>
-            <button className="button rounded"
+            <button className='button rounded'
               onClick={() => this.props.changeItemAmount(product.id, 1)}>
               +
             </button>
@@ -109,13 +110,13 @@ class ProductCard extends Component {
       && deal.type === 'price drop where x or more'
       && deal.x === 1) {
       return (
-        <span className="__price">
+        <span className='__price'>
           <small><strike>${ product.price / 100 }</strike> </small>
-          <span className="success-text">${ deal.new_price / 100 }</span>
+          <span className='success-text'>${ deal.new_price / 100 }</span>
         </span>
       )
     } else {
-      return <span className="__price">${ product.price / 100 }</span>
+      return <span className='__price'>${ product.price / 100 }</span>
     }
   }
 
@@ -129,16 +130,16 @@ class ProductCard extends Component {
         <Flex column>
           { this.renderDeal() }
           <Flex wrap gap={20} row>
-            <Flex mSize="100px">
-              <img src="http://via.placeholder.com/100x100" />
+            <Flex mSize='100px'>
+              <img src='http://via.placeholder.com/100x100' alt='product-img' />
             </Flex>
             <Flex column grow>
-              <h1 className="__title">{ product.name }</h1>
-              <p className="__description">{ product.description }</p>
+              <h1 className='__title'>{ product.name }</h1>
+              <p className='__description'>{ product.description }</p>
               { this.renderBasketAction() }
               { this.renderAddToCart() }
             </Flex>
-            <Flex selfAlign="end">
+            <Flex selfAlign='end'>
               { this.renderPrice() }
             </Flex>
           </Flex>

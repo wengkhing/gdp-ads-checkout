@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // import Flex from './components/Flex'
 
 import Home from './containers/Home'
-import Inventory from './containers/Inventory'
+// import Inventory from './containers/Inventory'
 import Shopping from './containers/Shopping'
 
 import Navbar from './components/Navbar'

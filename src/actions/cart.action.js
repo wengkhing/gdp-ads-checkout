@@ -69,10 +69,12 @@ export function calculate () {
               case 'price drop where x or more':
                 if (item.amount >= deal.x)
                   return sum + (deal.new_price * item.amount)
+                break;
+              default:
+                return sum + (item.price * item.amount)
             }
           }
         }
-        return sum + (item.price * item.amount)
       }, 0)
     dispatch ({
       type: CART_CALCULATE,
