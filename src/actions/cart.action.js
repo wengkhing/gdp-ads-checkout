@@ -75,6 +75,7 @@ export function calculate () {
             }
           }
         }
+        return sum + (item.price * item.amount)
       }, 0)
     dispatch ({
       type: CART_CALCULATE,
